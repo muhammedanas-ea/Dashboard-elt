@@ -58,35 +58,37 @@ const invoices = [
 
 const ClassesTable = () => {
   return (
-    <Table className="hidden md:block mt-3">
-      <TableHeader className="bg-[#F6F6F6]">
-        <TableRow>
-          <TableHead>Class name</TableHead>
-          <TableHead>Instructor</TableHead>
-          <TableHead>Actions</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody className="bg-[#ffff]">
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">
-              <div className="flex items-center gap-3">
-                <h1>1</h1>
-                <ClassName />
-              </div>
-            </TableCell>
-            <TableCell>
-              <Instructor />
-            </TableCell>
-            <TableCell>
-              <Button variant="default" size="sm">
-                join now <FiExternalLink size={15} />
-              </Button>
-            </TableCell>
+    <div className="mt-3 hidden md:block">
+      <Table>
+        <TableHeader className="bg-[#F6F6F6]">
+          <TableRow>
+            <TableHead>Class name</TableHead>
+            <TableHead>Instructor</TableHead>
+            <TableHead>Actions</TableHead>
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+        <TableBody className="bg-[#ffff]">
+          {invoices.map((invoice) => (
+            <TableRow key={invoice.invoice}>
+              <TableCell className="font-medium">
+                <div className="flex items-center gap-3">
+                  <h1>1</h1>
+                  <ClassName />
+                </div>
+              </TableCell>
+              <TableCell>
+                <Instructor />
+              </TableCell>
+              <TableCell>
+                <Button variant="default" size="sm">
+                  join now <FiExternalLink size={15} />
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </div>
   );
 };
 export default ClassesTable;
