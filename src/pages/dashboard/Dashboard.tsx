@@ -15,7 +15,7 @@ const Dashboard = () => {
   const perPage = 8;
 
   useEffect(() => {
-    fetch(`/api`)
+    fetch(`${import.meta.env.VITE_JSON_URL}`)
       .then((response) => response.json())
       .then((data) => {
         setFilteredClasses(data);
@@ -29,7 +29,7 @@ const Dashboard = () => {
   const handleCheckboxChange = () => {
     setBookedOnly(!bookedOnly);
     if (!bookedOnly) {
-      fetch(`/api?action=Book%20now`)
+      fetch(`${import.meta.env.VITE_JSON_URL}?action=Book%20now`)
         .then((response) => response.json())
         .then((data) => {
           setFilteredClasses(data);
