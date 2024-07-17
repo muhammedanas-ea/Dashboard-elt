@@ -17,7 +17,7 @@ import {
 
 export function PaginationDemo() {
   return (
-    <Pagination>
+    <Pagination className="dark:text-white">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious href="#" />
@@ -41,10 +41,10 @@ export function PaginationDemo() {
           <PaginationNext href="#" />
         </PaginationItem>
       </PaginationContent>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center dark:text-white">
         <h1 className="list_fonts">Result per page</h1>
         <Select>
-          <SelectTrigger className="w-[64px] h-[36px]">
+          <SelectTrigger className="w-[64px] h-[36px] dark:bg-[#1f2937] dark:text-white">
             <SelectValue placeholder="10" />
           </SelectTrigger>
           <SelectContent>

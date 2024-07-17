@@ -1,19 +1,16 @@
-// import { Button } from "@/components/ui/button"
-import Sidebar from "./components/sidebar/Sidebar";
-import Navbar from "./components/navbar/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import { ThemeProvider } from "./components/theme-provider";
-import MobileNavbarList from "./components/mobileNavbar/MobileNavbar";
+import { Routes, Route } from "react-router-dom";
+import DashboardLayout from "./layout/DashboardLayout";
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <div>
-        <Sidebar />
-        <Navbar />
-        <Dashboard />
-        <MobileNavbarList />
-      </div>
+    <ThemeProvider  defaultTheme="dark" storageKey="vite-ui-theme">
+      <Routes>
+        <Route path="/" element={<DashboardLayout />}>
+          <Route path="/" element={<Dashboard />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 }

@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <aside
       id="logo-sidebar"
-      className="hidden md:block fixed top-0 left-0 z-40 border-[1px] border-l-[#FFFFFF] w-[220px] h-screen transition-transform -translate-x-full sm:translate-x-0"
+      className="hidden md:block fixed top-0 left-0 z-40 border-[1px] dark:border-r-[#ffffff1c] border-r-[#FFFFFF] w-[220px] h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800">
@@ -16,7 +16,7 @@ const Sidebar = () => {
             Logo
           </h1>
         </Link>
-        <div className="pl-2.5 h-[133px] flex flex-col justify-center">
+        <div className="pl-2.5 h-[133px] flex flex-col justify-center dark:text-white">
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="profile" />
             <AvatarFallback>profile</AvatarFallback>
@@ -28,12 +28,12 @@ const Sidebar = () => {
         </div>
         <ul className="space-y-2 font-medium">
           {dshboardList.map((item) => (
-            <li key={item.id} className="hover:bg-gray-200 rounded-sm">
+            <li key={item.id} className="hover:bg-gray-200 rounded-sm dark:text-white">
               <Link
                 to={item.link}
                 className="flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
               >
-                <div className="w-[34px] h-[34px] rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
+                <div className="w-[34px] h-[34px] dark:text-black rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
                   {item.icon}
                 </div>
                 <span className="list_fonts flex-1 ml-3 whitespace-nowrap">
