@@ -21,6 +21,7 @@ const Dashboard = () => {
             </div>
           </div>
           <ClassesTable />
+
           <CardTable />
         </div>
         <div className="p-4 shadow-sm dark:text-white rounded-[12px] dark:border-[#ffffff1c] dark:bg-[#1f2937]  bg-[#ffff] border-[0.5px] border-[#0000001a] w-full">
