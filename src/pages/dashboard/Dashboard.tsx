@@ -3,6 +3,7 @@ import AssignmentCard from "../../components/assignmentCard/AssignmentCard";
 import { assignmentData } from "./common";
 import { Checkbox } from "@/components/ui/checkbox";
 import CardTable from "@/components/cardTable/CardTable";
+import { PaginationDemo } from "../../components/pagination/PaginationDemo.js";
 
 const Dashboard = () => {
   return (
@@ -21,11 +22,6 @@ const Dashboard = () => {
           </div>
           <ClassesTable />
           <CardTable />
-          <CardTable />
-          <CardTable />
-          <CardTable />
-          <CardTable />
-          <CardTable />
         </div>
         <div className="p-4 shadow-sm rounded-[12px] bg-[#ffff] border-[0.5px] border-[#0000001a] w-full">
           <h2>Assignments</h2>
@@ -34,6 +30,7 @@ const Dashboard = () => {
           })}
         </div>
       </div>
+        <PaginationDemo />
     </div>
   );
 };
