@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 const Instructor = () => {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3 dark:text-white">
       <div className="w-[36px] h-[36px]">
         <Avatar className="rounded-3xl">
           <AvatarImage
