@@ -14,12 +14,12 @@ const DialogBox = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Button variant="default" size="sm">
+        <Button className="w-full text-white" variant="default" size="sm">
           join now <FiExternalLink size={15} />
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogHeader>
+        <DialogHeader className="dark:text-white">
           <DialogTitle>Are you sure?</DialogTitle>
           <DialogDescription>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -28,11 +28,21 @@ const DialogBox = () => {
         </DialogHeader>
         <DialogFooter className="flex">
           <DialogTrigger>
-            <Button variant="ghost" size="sm" type="submit">
+            <Button
+              className="dark:text-white"
+              variant="ghost"
+              size="sm"
+              type="submit"
+            >
               close
             </Button>
           </DialogTrigger>
-          <Button variant="default" size="sm" type="submit">
+          <Button
+            className="dark:text-white"
+            variant="default"
+            size="sm"
+            type="submit"
+          >
             Confirm
           </Button>
         </DialogFooter>

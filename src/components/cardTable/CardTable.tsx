@@ -37,7 +37,7 @@ const CardTable = () => {
                   {item.action}
                 </Button>
               ) : (
-                <Button variant="ghost" size="sm">
+                <Button className="dark:text-white" variant="ghost" size="sm">
                   {item.duration} <FiClock size={15} />
                 </Button>
               )}
