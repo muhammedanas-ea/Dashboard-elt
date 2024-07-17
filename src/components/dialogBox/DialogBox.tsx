@@ -21,7 +21,7 @@ const DialogBox = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const handleConfirm = () => {
-    fetch(`http://localhost:8000/upcomingClassesData/${classData}`, {
+    fetch(`${import.meta.env.VITE_JSON_URL}/${classData}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

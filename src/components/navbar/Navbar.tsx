@@ -4,7 +4,7 @@ import { FiBell } from "react-icons/fi";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 z-30 ml-0 md:ml-[13rem] bg-[#FFFFFF] dark:bg-[#1f2937] border-[1px] dark:border-b-[#ffffff1c] border-b-[#FFFFFF]">
+    <div className="sticky top-0 z-30 ml-0 md:ml-[13rem] bg-[#FFFFFF] dark:bg-[#1f2937] border-b-[1px] border-b-[#0000001a] dark:border-b-[#ffffff1c]">
       <nav className="hidden md:flex items-center justify-between mx-auto  px-6 3xl:px-0 h-[70px]">
         <ul className="md:flex md:items-center md:gap-10 hidden list_fonts dark:text-white">
           <li>

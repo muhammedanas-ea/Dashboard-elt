@@ -32,12 +32,12 @@ const CardTable = ({
                 images={item.image}
                 additionalDetails={item.additionalDetails}
               />
-              {item.action === "Join now" ? (
+              {item.action === "Book now" ? (
                 <DialogBox
                   classData={item.id}
                   updateClassAction={updateClassAction}
                 />
-              ) : item.action === "Book now" ? (
+              ) : item.action === "Join now" ? (
                 <Button className=" text-white" variant="default" size="sm">
                   join now <FiExternalLink size={15} />
                 </Button>

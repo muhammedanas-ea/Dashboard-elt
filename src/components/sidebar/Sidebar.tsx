@@ -8,7 +8,7 @@ const Sidebar = () => {
   return (
     <aside
       id="logo-sidebar"
-      className="hidden md:block fixed top-0 left-0 z-40 border-[1px] dark:border-r-[#ffffff1c] border-r-[#FFFFFF] w-[220px] h-screen transition-transform -translate-x-full sm:translate-x-0"
+      className="hidden md:block fixed top-0 left-0 z-40 border-r-[1px] dark:border-r-[#ffffff1c] border-r-[#0000001a] w-[220px] h-screen transition-transform -translate-x-full sm:translate-x-0"
       aria-label="Sidebar"
     >
       <div className="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800">
@@ -55,7 +55,7 @@ const Sidebar = () => {
             <div className="w-[34px] h-[34px] dark:text-black rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
               <FiLogOut size={18} />
             </div>
-            <span className="list_fonts flex-1 ml-3 whitespace-nowrap">
+            <span className="list_fonts dark:text-white flex-1 ml-3 whitespace-nowrap">
               Log out
             </span>
           </Link>

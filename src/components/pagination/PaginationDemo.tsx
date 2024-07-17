@@ -44,7 +44,7 @@ export function PaginationDemo({
             <PaginationLink
               className={` text-black dark:text-white ${
                 currentPage === index + 1
-                  ? "active bg-[#2080F6] text-white"
+                  ? "active bg-[#2080F6] text-white h-[36px] w-[31px]"
                   : ""
               }`}
               onClick={() => handlePageChange(index + 1)}
