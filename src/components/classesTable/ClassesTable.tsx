@@ -10,10 +10,10 @@ import { Button } from "@/components/ui/button";
 import { FiClock } from "react-icons/fi";
 import Instructor from "../instrector/Instrector";
 import Name from "../className/Name";
-import { upcomingClassesData } from "@/pages/dashboard/common";
 import DialogBox from "../dialogBox/DialogBox";
+import { ClassesDataType } from "../cardTable/type";
 
-const ClassesTable = () => {
+const ClassesTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
   return (
     <div className="mt-3 hidden md:block">
       <Table>
@@ -25,7 +25,7 @@ const ClassesTable = () => {
           </TableRow>
         </TableHeader>
         <TableBody className="bg-[#ffff] dark:bg-[#1f2937]">
-          {upcomingClassesData.map((classData, index) => (
+          {classesProps.map((classData, index) => (
             <TableRow className="dark:text-white" key={index}>
               <TableCell className="font-medium">
                 <div className="flex items-center gap-3">

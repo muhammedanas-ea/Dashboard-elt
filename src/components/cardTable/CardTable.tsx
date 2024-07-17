@@ -2,13 +2,13 @@ import { FiClock } from "react-icons/fi";
 import Name from "../className/Name";
 import Instructor from "../instrector/Instrector";
 import { Button } from "../ui/button";
-import { upcomingClassesData } from "@/pages/dashboard/common";
 import DialogBox from "../dialogBox/DialogBox";
+import { ClassesDataType } from "./type";
 
-const CardTable = () => {
+const CardTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
   return (
     <>
-      {upcomingClassesData.map((item) => {
+      {classesProps.map((item) => {
         return (
           <div
             key={item.image}
