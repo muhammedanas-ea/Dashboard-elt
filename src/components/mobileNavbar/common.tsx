@@ -1,6 +1,6 @@
-import { MdDashboard, MdOutlineCurrencyRupee } from "react-icons/md";
-import { FiBarChart2, FiFileText, FiUsers } from "react-icons/fi";
-import { IoSettingsOutline } from "react-icons/io5";
+import { MdDashboard } from "react-icons/md";
+import { FiBarChart2, FiFileText } from "react-icons/fi";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 export const mobileNavbarList = [
   {
@@ -11,32 +11,25 @@ export const mobileNavbarList = [
   },
   {
     id: 2,
-    icon: <FiUsers size={17} />,
-    name: "All classes",
-    link: "/",
-  },
-  {
-    id: 3,
     icon: <FiFileText size={17} />,
     name: "Assignments",
     link: "/",
   },
   {
-    id: 4,
+    id: 3,
     icon: <FiBarChart2 size={17} />,
     name: "Performance",
     link: "/",
   },
   {
-    id: 5,
-    icon: <MdOutlineCurrencyRupee size={17} />,
-    name: "Fee details",
-    link: "/",
-  },
-  {
-    id: 6,
-    icon: <IoSettingsOutline size={17} />,
-    name: "Settings",
+    id: 4,
+    icon: (
+      <Avatar>
+        <AvatarImage className="rounded-3xl" src="https://github.com/shadcn.png" alt="profile" />
+        <AvatarFallback>profile</AvatarFallback>
+      </Avatar>
+    ),
+    name: "profile",
     link: "/",
   },
 ];

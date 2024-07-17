@@ -1,5 +1,6 @@
 // type.ts
 export interface ClassesDataType {
+  id: number;
   className: string;
   instructor: string;
   action?: string;

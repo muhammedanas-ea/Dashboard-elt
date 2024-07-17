@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { dshboardList } from './common';
+import { dshboardList } from "./common";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
   return (
@@ -28,7 +29,10 @@ const Sidebar = () => {
         </div>
         <ul className="space-y-2 font-medium">
           {dshboardList.map((item) => (
-            <li key={item.id} className="hover:bg-gray-200 rounded-sm dark:text-white">
+            <li
+              key={item.id}
+              className="hover:bg-gray-200 rounded-sm dark:text-white"
+            >
               <Link
                 to={item.link}
                 className="flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
@@ -43,6 +47,19 @@ const Sidebar = () => {
             </li>
           ))}
         </ul>
+        <div className="mt-7">
+          <Link
+            to="/"
+            className=" text-black flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
+          >
+            <div className="w-[34px] h-[34px] dark:text-black rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
+              <FiLogOut size={18} />
+            </div>
+            <span className="list_fonts flex-1 ml-3 whitespace-nowrap">
+              Log out
+            </span>
+          </Link>
+        </div>
       </div>
     </aside>
   );

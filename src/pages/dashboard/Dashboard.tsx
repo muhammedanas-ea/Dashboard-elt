@@ -1,44 +1,54 @@
+import React, { useEffect, useState } from "react";
 import ClassesTable from "@/components/classesTable/ClassesTable";
 import AssignmentCard from "../../components/assignmentCard/AssignmentCard";
-import { assignmentData } from "./common";
-import { Checkbox } from "@/components/ui/checkbox";
 import CardTable from "@/components/cardTable/CardTable";
 import { PaginationDemo } from "../../components/pagination/PaginationDemo.js";
-import { upcomingClassesData } from "./common";
-import { useEffect, useState } from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 import { ClassesDataType } from "@/components/cardTable/type.js";
+import { assignmentData } from "./common";
 
 const Dashboard = () => {
   const [bookedOnly, setBookedOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [filteredClasses, setFilteredClasses] = useState<ClassesDataType[]>([]);
+  const [fetchData, setFetchData] = useState(true);
   const perPage = 8;
 
-  const [filteredClasses, setFilteredClasses] = useState<ClassesDataType[]>(
-    upcomingClassesData
-  );
+  useEffect(() => {
+    fetch(`/api`)
+      .then((response) => response.json())
+      .then((data) => {
+        setFilteredClasses(data);
+        setFetchData(false);
+      });
+  }, [fetchData]);
 
-  const totalPage:number = Math.ceil(filteredClasses.length / perPage);
+  const totalPage: number = Math.ceil(filteredClasses.length / perPage);
 
-  const filterClasses = () => {
-    if (bookedOnly) {
-      return filteredClasses.filter((item) => item.action === "Book now");
+
+  const handleCheckboxChange = () => {
+    setBookedOnly(!bookedOnly);
+    if (!bookedOnly) {
+      fetch(`/api?action=Book%20now`)
+        .then((response) => response.json())
+        .then((data) => {
+          setFilteredClasses(data);
+        });
     } else {
-      return upcomingClassesData;
+      setFetchData(true);
     }
   };
 
-  useEffect(() => {
-    setFilteredClasses(filterClasses());
-  }, [bookedOnly]);
+  const updateClassAction = (data: number) => {
+    if (data) {
+      setFetchData(true);
+    }
+  };
 
   const paginatedClasses = filteredClasses.slice(
     (currentPage - 1) * perPage,
     currentPage * perPage
   );
-
-  const handleCheckboxChange = () => {
-    setBookedOnly(!bookedOnly);
-  };
 
   return (
     <div className="p-4 md:ml-[14rem]">
@@ -57,14 +67,20 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <ClassesTable classesProps={paginatedClasses} />
-          <CardTable classesProps={paginatedClasses} />
+          <ClassesTable
+            classesProps={paginatedClasses}
+            updateClassAction={updateClassAction}
+          />
+          <CardTable
+            classesProps={paginatedClasses}
+            updateClassAction={updateClassAction}
+          />
         </div>
         <div className="p-4 shadow-sm dark:text-white rounded-[12px] dark:border-[#ffffff1c] dark:bg-[#1f2937]  bg-[#ffff] border-[0.5px] border-[#0000001a] w-full">
           <h2>Assignments</h2>
-          {assignmentData.map((item) => {
-            return <AssignmentCard key={item.id} assignmentProps={item} />;
-          })}
+          {assignmentData.map((item) => (
+            <AssignmentCard key={item.id} assignmentProps={item} />
+          ))}
         </div>
       </div>
       <PaginationDemo

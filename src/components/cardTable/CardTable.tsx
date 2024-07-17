@@ -1,17 +1,23 @@
-import { FiClock } from "react-icons/fi";
+import { FiClock, FiExternalLink } from "react-icons/fi";
 import Name from "../className/Name";
 import Instructor from "../instrector/Instrector";
 import { Button } from "../ui/button";
 import DialogBox from "../dialogBox/DialogBox";
 import { ClassesDataType } from "./type";
 
-const CardTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
+const CardTable = ({
+  classesProps,
+  updateClassAction,
+}: {
+  classesProps: ClassesDataType[];
+  updateClassAction: (id: number) => void;
+}) => {
   return (
     <>
       {classesProps.map((item) => {
         return (
           <div
-            key={item.image}
+            key={item.id}
             className="border-[1px] dark:border-[#ffffff1c] border-[#E2E2E2] mt-3 rounded-[12px] md:hidden"
           >
             <div className="p-4 flex flex-col gap-3 ">
@@ -27,18 +33,17 @@ const CardTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
                 additionalDetails={item.additionalDetails}
               />
               {item.action === "Join now" ? (
-                <DialogBox />
+                <DialogBox
+                  classData={item.id}
+                  updateClassAction={updateClassAction}
+                />
               ) : item.action === "Book now" ? (
-                <Button
-                  variant="outline"
-                  className="text-black font-bold dark:text-white"
-                  size="sm"
-                >
-                  {item.action}
+                <Button className=" text-white" variant="default" size="sm">
+                  join now <FiExternalLink size={15} />
                 </Button>
               ) : (
                 <Button className="dark:text-white" variant="ghost" size="sm">
-                  {item.duration} <FiClock size={15} />
+                  {item.action} <FiClock size={15} />
                 </Button>
               )}
             </div>

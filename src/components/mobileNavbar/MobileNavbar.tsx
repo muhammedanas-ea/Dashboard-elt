@@ -5,7 +5,7 @@ const MobileNavbarList = () => {
   return (
     <div className="w-full border-[1px] dark:bg-[#1f2937] border-t-[#0000001a] bg-[#ffff] sticky bottom-0 md:hidden">
       <div className="mx-auto p-2 ">
-        <ul className="flex gap-6 items-center sm:justify-center overflow-x-auto">
+        <ul className="grid grid-cols-4 items-center justify-center overflow-x-auto">
           {mobileNavbarList.map((item) => (
             <li key={item.id} className="hover:bg-gray-200 rounded-sm dark:text-white">
               <Link

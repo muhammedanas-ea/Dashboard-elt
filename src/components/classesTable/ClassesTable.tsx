@@ -7,13 +7,23 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { FiClock } from "react-icons/fi";
+import { FiClock, FiExternalLink } from "react-icons/fi";
 import Instructor from "../instrector/Instrector";
 import Name from "../className/Name";
 import DialogBox from "../dialogBox/DialogBox";
 import { ClassesDataType } from "../cardTable/type";
+// import { useState } from "react";
+// import moment from "moment";
 
-const ClassesTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
+const ClassesTable = ({
+  classesProps,
+  updateClassAction,
+}: {
+  classesProps: ClassesDataType[];
+  updateClassAction: (id: number) => void;
+}) => {
+  // const [timer,setTimer] = useState(string)
+  // setTimer(moment(bookingData.ChekIn).format("MMM Do YY"))
   return (
     <div className="mt-3 hidden md:block">
       <Table>
@@ -26,7 +36,7 @@ const ClassesTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
         </TableHeader>
         <TableBody className="bg-[#ffff] dark:bg-[#1f2937]">
           {classesProps.map((classData, index) => (
-            <TableRow className="dark:text-white" key={index}>
+            <TableRow className="dark:text-white" key={classData.id}>
               <TableCell className="font-medium">
                 <div className="flex items-center gap-3">
                   <h1>{index + 1}</h1>
@@ -46,15 +56,18 @@ const ClassesTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
                 />
               </TableCell>
               <TableCell>
-                {classData.action === "Join now" ? (
-                  <DialogBox />
-                ) : classData.action === "Book now" ? (
-                  <Button variant="outline" className="text-black font-bold dark:text-white" size="sm">
-                    {classData.action}
+                {classData.action === "Book now" ? (
+                  <DialogBox
+                    classData={classData.id}
+                    updateClassAction={updateClassAction}
+                  />
+                ) : classData.action === "Join now" ? (
+                  <Button className=" text-white" variant="default" size="sm">
+                    join now <FiExternalLink size={15} />
                   </Button>
                 ) : (
                   <Button variant="ghost" size="sm">
-                    {classData.duration} <FiClock size={15} />
+                    {classData.action} <FiClock size={15} />
                   </Button>
                 )}
               </TableCell>
@@ -65,4 +78,5 @@ const ClassesTable = ({classesProps}:{ classesProps: ClassesDataType[] }) => {
     </div>
   );
 };
+
 export default ClassesTable;
