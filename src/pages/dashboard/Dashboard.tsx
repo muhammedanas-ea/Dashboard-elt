@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ClassesTable from "@/components/classesTable/ClassesTable";
 import AssignmentCard from "../../components/assignmentCard/AssignmentCard";
 import CardTable from "@/components/cardTable/CardTable";
