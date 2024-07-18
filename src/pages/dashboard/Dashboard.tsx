@@ -29,7 +29,7 @@ const Dashboard = () => {
   const handleCheckboxChange = () => {
     setBookedOnly(!bookedOnly);
     if (!bookedOnly) {
-      fetch(`${import.meta.env.VITE_JSON_URL}?action=Book%20now`)
+      fetch(`${import.meta.env.VITE_JSON_URL}?action=Join%20now`)
         .then((response) => response.json())
         .then((data) => {
           setFilteredClasses(data);
