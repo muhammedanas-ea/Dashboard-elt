@@ -35,11 +35,7 @@ const Sidebar = () => {
             <li
               key={item.id}
               onClick={() => setSelectedItem(item.id)}
-              className={`${
-                selectedItem === item.id
-                  ? "bg-gray-300 text-black font-bold"
-                  : "hover:bg-gray-200 dark:text-white"
-              } rounded-sm`}
+              className={`hover:bg-gray-200 dark:text-white rounded-sm`}
             >
               <Link
                 to={item.link}
