@@ -12,8 +12,7 @@ import Instructor from "../instrector/Instrector";
 import Name from "../className/Name";
 import DialogBox from "../dialogBox/DialogBox";
 import { ClassesDataType } from "../cardTable/type";
-// import { useState } from "react";
-// import moment from "moment";
+
 
 const ClassesTable = ({
   classesProps,
@@ -22,8 +21,6 @@ const ClassesTable = ({
   classesProps: ClassesDataType[];
   updateClassAction: (id: number) => void;
 }) => {
-  // const [timer,setTimer] = useState(string)
-  // setTimer(moment(bookingData.ChekIn).format("MMM Do YY"))
   return (
     <div className="mt-3 hidden md:block">
       <Table>

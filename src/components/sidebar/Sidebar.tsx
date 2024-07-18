@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { dshboardList } from "./common";
@@ -5,6 +6,8 @@ import { AvatarFallback } from "@radix-ui/react-avatar";
 import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
+  const [selectedItem, setSelectedItem] = useState<number | null>(null);
+
   return (
     <aside
       id="logo-sidebar"
@@ -31,16 +34,21 @@ const Sidebar = () => {
           {dshboardList.map((item) => (
             <li
               key={item.id}
-              className="hover:bg-gray-200 rounded-sm dark:text-white"
+              onClick={() => setSelectedItem(item.id)}
+              className={`${
+                selectedItem === item.id
+                  ? "bg-gray-300 text-black font-bold"
+                  : "hover:bg-gray-200 dark:text-white"
+              } rounded-sm`}
             >
               <Link
                 to={item.link}
                 className="flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
               >
-                <div className="w-[34px] h-[34px] dark:text-black rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
+                <div className={`${selectedItem === item.id ? "bg-[#0467FC] text-white" : "bg-[#EFEDEA] dark:text-black"} w-[34px] h-[34px]  rounded-3xl  flex items-center justify-center`}>
                   {item.icon}
                 </div>
-                <span className="list_fonts flex-1 ml-3 whitespace-nowrap">
+                <span className={`${selectedItem === item.id ? "text-black list_fonts font-semibold" : "list_fonts "} "list_fonts flex-1 ml-3 whitespace-nowrap"`}>
                   {item.name}
                 </span>
               </Link>
@@ -50,7 +58,7 @@ const Sidebar = () => {
         <div className="mt-7">
           <Link
             to="/"
-            className=" text-black flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
+            className="text-black flex gap-[10px] items-center p-2 dark:hover:bg-gray-700 group"
           >
             <div className="w-[34px] h-[34px] dark:text-black rounded-3xl bg-[#EFEDEA] flex items-center justify-center">
               <FiLogOut size={18} />
